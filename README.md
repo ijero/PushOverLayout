@@ -31,8 +31,11 @@
 使用示例：
 
 > xml
+> 
 > pol_topParallax：视差变化率（0.1F~1.0F）
+> 
 > pol_overBackgroundEnable：是否显示覆盖层
+> 
 > pol_shadowEnable：是否显示阴影
 
 ```
@@ -41,21 +44,46 @@ app:pol_overBackgroundEnable="true"
 app:pol_shadowEnable="true"
 ```
 
-> java
+> java属性使用示例
 
 ```
 // 在Activity中设置监听
 pushOverLayout.listenPushChanged = this@MainActivity
 
-// 切换状态
-pushOverLayout.toggle()
-
 // 锁定状态（只锁定手势操作，开关不受限制）
 pushOverLayout.lockCurrentState = false
 
-// 获取当前的状态是否是停靠状态,不支持直接设置停靠状态，需要调用toggle()或者snapTo()进行设置
-pushOverLayout.isSnapped
+// TopView的背景覆盖层显示
+pushOverLayout.overBackgroundEnable = true
 
+// 显示阴影
+pushOverLayout.shadowEnable = true
+
+// 设置视差变化率
+pushOverLayout.topParallax = 0.6F
+
+```
+
+> java方法使用示例：
+
+```
+// 切换状态
+pushOverLayout.toggle()
+
+// 获取当前的状态是否是停靠状态
+pushOverLayout.isSnapped()
+
+// 同：属性 pushOverLayout.lockCurrentState = true
+pushOverLayout.lock()
+
+// 同：属性 pushOverLayout.lockCurrentState = fasle
+pushOverLayout.unlock()
+
+// 获取锁定状态，同：pushOverLayout.lockCurrentState
+pushOverLayout.isLocked()
+
+// 设置停靠状态, SnapState.SNAP 或 SnapState.NORMAL
+pushOverLayout.snapTo(state: SnapState)
 ```
 
 实现PushOverLayout.OnPushChangedListener接口，并覆盖以下回调方法，便于针对监听实现更多的效果：

@@ -345,7 +345,7 @@ constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context
      *
      * @author Jero
      */
-    fun isSnaped() = isSnapped
+    fun isSnapped() = isSnapped
 
     /**
      * 改变相反的停靠位置

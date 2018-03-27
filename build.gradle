@@ -41,8 +41,8 @@ ext {
             cSdk : 26,
             mSdk : 16,
             tSdk : 26,
-            vCode: 1,
-            vName: "0.1.0"
+            vCode: 2,
+            vName: "0.1.1"
     ]
     support_version = '27.1.0'
     anko_version = '0.10.2'
