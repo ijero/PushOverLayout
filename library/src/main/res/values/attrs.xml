@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PushOverLayout">
+        <attr name="pol_topParallax" format="float" />
+        <attr name="pol_shadowEnable" format="boolean" />
+        <attr name="pol_overBackgroundEnable" format="boolean"/>
+    </declare-styleable>
+</resources>

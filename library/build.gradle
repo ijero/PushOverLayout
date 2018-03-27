@@ -1,0 +1,71 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion setup.cSdk
+    defaultConfig {
+        minSdkVersion setup.mSdk
+        targetSdkVersion setup.tSdk
+        versionCode setup.vCode
+        versionName setup.vName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.android.support:appcompat-v7:$support_version"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:design:$support_version"
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/javadoc"
+    // Use to include or exclude non public members.
+    includeNonPublic = false
+    // Do not output deprecated members. Applies globally, can be overridden by packageOptions
+    skipDeprecated = false
+    // Emit warnings about not documented members. Applies globally, also can be overridden by packageOptions
+    reportUndocumented = true
+    // Do not create index pages for empty packages
+    skipEmptyPackages = true
+    // By default, sourceRoots is taken from kotlinTasks, following roots will be appended to it
+    // Short form sourceRoots
+    sourceDirs = files('src/main/java')
+    // No default documentation link to kotlin-stdlib
+    noStdlibLink = true
+
+}
+
+publish {
+    repoName ='android'
+    userOrg = 'jero'      //bintray注册的用户名
+    groupId = 'cn.ijero.pushover'
+    artifactId = 'push-over-layout'
+    publishVersion = setup.vName
+    desc = 'PushOverLayout'
+    website = 'https://github.com/ijero/push-over-layout'
+}
