@@ -4,13 +4,15 @@
 > 浏览首页上推停靠tab效果。
 > 至少需要3个子View。
 
-文档地址：https://ijero.github.io/javadoc/push-over-layout/library/cn.ijero.pushover/-push-over-layout/index.html
+文档地址：
+
+> https://ijero.github.io/javadoc/push-over-layout/library/cn.ijero.pushover/-push-over-layout/index.html
 
 效果示例：
 
-<video id="video" controls="" preload="none" width='40%'>
-	<source id="mp4" src="resource/video/demo.mp4" />
-</video>
+> <a href='resource/demo.mp4'>点击下载演示mp4</a>
+
+<img src='resource/demo1.jpg' width='260px' /> <img src='resource/demo2.jpg' width='260px' /> <img src='resource/demo3.jpg' width='260px' />
 
 引入项目：
 > 添加源
