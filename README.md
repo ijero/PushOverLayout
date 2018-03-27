@@ -25,7 +25,7 @@
 
 > dependency
 
-	implementation 'cn.ijero.pushover:push-over-layout:0.1.0'
+	implementation 'cn.ijero.pushover:push-over-layout:0.1.1'
 
 
 使用示例：
